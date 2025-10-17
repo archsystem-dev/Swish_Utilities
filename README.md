@@ -13,7 +13,7 @@ Cette procédure décrit comment préparer les fichiers, choisir le type de prot
 
 ## Mise en place de l’environnement
 Dans une console PowerShell
-```
+```powershell
 PS C:\WINDOWS\\system32> cd C:\Dev\swish-utils\swish-utilities\nPS
 C:\Dev\swish-utils\swish-utilities> py -3.12 -m venv .venv\nPS
 C:\Dev\swish-utils\swish-utilities> .\.venv\Scripts\Activate
@@ -108,7 +108,7 @@ Après (method=2 + important_tokens):
 * Lignes irrégulières : utiliser un pré-nettoyage tolérant si nécessaire (engine="python", on_bad_lines).
 
 ### Pré-nettoyage tolérant (optionnel)
-```
+```python
 import pandas as pd 
 
 src = r"C:\Data\to_mask\incclients.csv" 
@@ -125,7 +125,7 @@ $code -Encoding UTF8 python $tempP
 
 ## Exécution du masquage – commandes types
 Masquer un fichier unique :
-```
+```python
 python .\run.py --mask ` 
     --input_dir "C:\Data\to_mask" ` 
     --input_file "incclients.csv" ` 
@@ -140,7 +140,7 @@ python .\run.py --mask `
 
 ## Masquer tous les fichiers du dossier (retirer --input_file)
 
-```
+```python
 python .\run.py --mask ` 
     --input_dir "C:\Data\to_mask" ` 
     --output_dir "C:\Data\masked" ` 
@@ -157,7 +157,7 @@ python .\run.py --mask `
 * Vérifier que les colonnes pseudonymisées (method=1) ressemblent à des hashes (64 caractères hexadécimaux).
 * Vérifier l’absence d’emails/téléphones bruts dans les champs de texte (méthode 2)
 
-```
+```python
 $csv = Import-Csv "C:\Data\masked\incclients_processed.csv" 
 $cols = 'Affecté à','Appelant','Utilisateur impacté' 
 $regex = '^[a-f0-9]{64}$' 
@@ -173,7 +173,7 @@ Correctifs :
 * Corriger manuellement la ligne signalée. 
 * Adapter le parseur côté run.py pour une lecture plus tolérante.
 
-```
+```python
 pd.read_csv(path, engine='python', on_bad_lines='warn', dtype=str, encoding='utf-8-sig')
 ```
 
