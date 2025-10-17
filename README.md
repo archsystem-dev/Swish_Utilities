@@ -14,9 +14,9 @@ Cette procédure décrit comment préparer les fichiers, choisir le type de prot
 ## Mise en place de l’environnement
 Dans une console PowerShell
 ```
-PS C:\\WINDOWS\\system32> cd C:\\Dev\\swish-utils\\swish-utilities\nPS
-C:\\Dev\\swish-utils\\swish-utilities> py -3.12 -m venv .venv\nPS
-C:\\Dev\\swish-utils\\swish-utilities> .\\.venv\\Scripts\\Activate
+PS C:\WINDOWS\\system32> cd C:\Dev\swish-utils\swish-utilities\nPS
+C:\Dev\swish-utils\swish-utilities> py -3.12 -m venv .venv\nPS
+C:\Dev\swish-utils\swish-utilities> .\.venv\Scripts\Activate
 ```
 
 ## Fichiers nécessaires
